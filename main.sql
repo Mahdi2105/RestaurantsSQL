@@ -33,20 +33,20 @@ INSERT INTO Menus (name, restaurant_ID) VALUES
 INSERT INTO MenuItems (name, price, menu_ID) VALUES 
 ("Veg Curry", 2000, 1), ("Vegan Sausage Roll", 600, 1), ("Roast Chiken", 1700, 2), ("Lamb Kebab", 1400, 2), ("Sparkling Water :)", 100000, 3), ("Still Water", 1, 3), ("Cheese Cake", 500, 4), ("Apple Pie", 500, 4);
 
---SELECT Restaurants.name AS "Restaurant Name", Menus.name AS "Menu Name", MenuItems.name AS "Menu Item Name", MenuItems.price /100.00 AS "Menu Item Price" 
---FROM Restaurants
---JOIN Menus ON
---Restaurants.restaurant_ID = Menus.restaurant_ID
---JOIN MenuItems ON
---Menus.menu_ID = MenuItems.menu_ID
---WHERE Restaurants.name = "Veg_Restaurant"
---AND Menus.name = "VegMenu"
+SELECT Restaurants.name AS "Restaurant Name", Menus.name AS "Menu Name", MenuItems.name AS "Menu Item Name", MenuItems.price AS "Menu Item Price"
+FROM Restaurants
+JOIN Menus ON
+Restaurants.restaurant_ID = Menus.restaurant_ID
+JOIN MenuItems ON
+Menus.menu_ID = MenuItems.menu_ID
+WHERE Restaurants.name = "Veg_Restaurant"
+AND Menus.name = "VegMenu";
 
--- SELECT Restaurants.name AS "Restaurant Name", COUNT (Menus.menu_ID) AS "Number of Menus"
--- FROM Restaurants
--- JOIN Menus
--- ON Restaurants.restaurant_ID = Menus.restaurant_ID
--- GROUP BY Restaurants.name
+SELECT Restaurants.name AS "Restaurant Name", COUNT (Menus.menu_ID) AS "Number of Menus"
+FROM Restaurants
+JOIN Menus
+ON Restaurants.restaurant_ID = Menus.restaurant_ID
+GROUP BY Restaurants.name;
 
 -- ALmost same as doing it by using FROM restaurants, Menus
 
