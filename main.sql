@@ -42,10 +42,17 @@ INSERT INTO MenuItems (name, price, menu_ID) VALUES
 --WHERE Restaurants.name = "Veg_Restaurant"
 --AND Menus.name = "VegMenu"
 
-SELECT Restaurants.name AS "Restaurant Name", COUNT (Menus.menu_ID) AS "Number of Menus"
-FROM Restaurants
-JOIN Menus
-ON Restaurants.restaurant_ID = Menus.restaurant_ID
-GROUP BY Restaurants.name
+-- SELECT Restaurants.name AS "Restaurant Name", COUNT (Menus.menu_ID) AS "Number of Menus"
+-- FROM Restaurants
+-- JOIN Menus
+-- ON Restaurants.restaurant_ID = Menus.restaurant_ID
+-- GROUP BY Restaurants.name
 
 -- ALmost same as doing it by using FROM restaurants, Menus
+
+SELECT Menus.name AS "Menu Name", SUM (MenuItems.price) AS "Sum of Items"
+FROM MenuItems
+JOIN Menus
+ON MenuItems.menu_ID = Menus.menu_ID
+GROUP BY Menus.name
+ORDER BY "Sum of Items" DESC
